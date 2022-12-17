@@ -7,53 +7,50 @@ var output = document.querySelector("#output");
 outputPopupBox.style.display = "none";
 output.style.display = "none";
 submitButton.addEventListener("click", getResult);
-function getResult()
-{
-    var intial =(intialPrice.value);
+function getResult() {
+    var intial = (intialPrice.value);
     var quantity = (stockNumber.value);
     var currentAmount = (currentPrice.value);
-    if( currentAmount > intial )
-    {
-        var profit =(currentAmount-intial)*quantity;
-        var profitPercentage = (profit/intial)*100;
+    if (currentAmount > intial) {
+        var profit = (currentAmount - intial) * quantity;
+        var profitPercentage = (profit / intial) * 100;
         var message = `You have a 📈 profit of ${profitPercentage}% and that is ${profit}. 🤑`;
-        showOutput(message,"Profit");
+        showOutput(message, "Profit");
     }
-    else if( currentAmount < intial )
-    {
-        var loss =(intial-currentAmount)*quantity;
-        var lossPercentage = (loss/intial)*100;
+    else if (currentAmount < intial) {
+        var loss = (intial - currentAmount) * quantity;
+        var lossPercentage = (loss / intial) * 100;
         var message = `You have a 📉 loss of ${lossPercentage}% and that is ${loss} 🙁`;
-        showOutput(message,"Loss");
-        
+        showOutput(message, "Loss");
+
     }
-        else{
+    else {
         showOutput(`Neither profit nor loss`, "neutral");
     }
 }
-function showOutput(message,status )
-{
+function showOutput(message, status) {
 
-switch(status)
-{
-    case "Profit" : 
-    outputPopupBox.style.display = "block"
-    output.style.display="block";
-    outputPopupBox.style.background = "rgba(6, 214, 86, 0.979)"
-     output.innerText = message;
-        break;
-     case "Loss" : 
-     outputPopupBox.style.display = "block"
-    output.style.display="block";
-    outputPopupBox.style.background = "rgba(255, 15, 15, 0.979)"
+    switch (status) {
+        case "Profit":
+            outputPopupBox.style.display = "block"
+            output.style.display = "block";
+            outputPopupBox.style.background = "rgba(6, 214, 86, 0.979)"
+            output.innerText = message;
+            break;
+        case "Loss":
+            output.innerText = message;
+            outputPopupBox.style.display = "block"
+            output.style.display = "block";
+            outputPopupBox.style.background = "rgba(255, 15, 15, 0.979)"
+           
+            break;
 
-     output.innerText = message;
-     break;
-
-     case "neutral" : 
-     outputPopupBox.style.display = "block"
-    output.style.display="block";
-    outputPopupBox.style.background = "rgba(0, 0, 0, 0.979)"
-     output.innerText = message;
+        case "neutral":
+            output.innerText = message;
+            outputPopupBox.style.display = "block"
+            output.style.display = "block";
+            outputPopupBox.style.background = "rgba(0, 0, 0, 0.979)"
+            
+    }
 }
-}
+
