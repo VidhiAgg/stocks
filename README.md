@@ -1,4 +1,4 @@
-# pProfit or loss
+# Profit or loss
 
 ## Get to know that whether your stocks giving you profit or loss.
 ### Tech stack used:
